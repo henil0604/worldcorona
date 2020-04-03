@@ -8,11 +8,16 @@ setInterval(() => {
 function updatePage() {
 
     console.log("Details Reloded")
-    fetch("https://henil0604.github.io/worldCorona.github.io/data.json")
+    fetch("http://127.0.0.1:5500/data.json")
         .then(response => response.json())
         .then(rsp => {
+
             var spn = document.getElementById('spinner')
             spn.innerHTML = "";
+
+            var length = document.getElementById('length')
+            length.innerHTML = `Corona Details of ${rsp.data.length} States`
+
             // console.log(rsp);
             // console.log(rsp.data)
             rsp.data.forEach(element => {
