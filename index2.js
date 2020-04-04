@@ -39,7 +39,6 @@ function updatePage() {
                 else if (deadRate == "") {
                     deadRate = "0"
                 }
-
                 i = -1
 
                 var card = `
@@ -50,7 +49,7 @@ function updatePage() {
                                 <p class="card-subtitle mb-2 text-muted" id="dead">Dead: ${dead}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="pop">Poplution: ${pop}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="rec">Recovered: ${recovered}</p>
-                                <p class="card-subtitle mb-2 text-muted" id="deadRate">Dead Rate: ${deadRate}%</p>
+                                <p class="card-subtitle mb-2 text-muted" id="rec">Dead Rate: ${deadRate}%</p>
                             </div>
                         </div>
                     `
