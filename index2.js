@@ -39,9 +39,6 @@ function updatePage() {
                 else if (deadRate == "") {
                     deadRate = "0"
                 }
-                lastUpdated = element.lastUpdated
-                lastUpdated = lastUpdated.toString()
-                lastUpdated = lastUpdated.substring(0, lastUpdated.length - 6)
 
                 i = -1
 
@@ -54,7 +51,6 @@ function updatePage() {
                                 <p class="card-subtitle mb-2 text-muted" id="pop">Poplution: ${pop}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="rec">Recovered: ${recovered}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="rec">Dead Rate: ${deadRate}%</p>
-                                <p class="card-subtitle mb-2 text-muted" id="rec">Last Updated: ${lastUpdated}%</p>
                             </div>
                         </div>
                     `
