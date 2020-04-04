@@ -40,6 +40,8 @@ function updatePage() {
                     deadRate = "0"
                 }
                 lastUpdated = element.lastUpdated
+                lastUpdated = lastUpdated.toString()
+                lastUpdated = lastUpdated.substring(0, lastUpdated.length - 6)
 
                 i = -1
 
