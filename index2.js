@@ -8,7 +8,7 @@ setInterval(() => {
 function updatePage() {
 
     console.log("Details Reloded")
-    fetch("https://henil0604.github.io/worldCorona.github.io/data.json")
+    fetch("https://coronavirus.app/get-places", {"credentials":"include","headers":{"accept":"*/*","accept-language":"en-US,en-IN;q=0.9,en;q=0.8,hi;q=0.7,gu;q=0.6","content-type":"application/json","if-none-match":"W/\"13552-fHSH9JI7AXH2cevkz2iiVlheTIY\"","sec-fetch-dest":"empty","sec-fetch-mode":"cors","sec-fetch-site":"same-origin","x-apkoll":"YrrsCSQlZWUkYZpICjkM","x-date-req":"2020-04-04T07:47:09.311Z"},"referrer":"https://coronavirus.app/map","referrerPolicy":"no-referrer-when-downgrade","body":null,"method":"GET","mode":"cors"});
         .then(response => response.json())
         .then(rsp => {
 
