@@ -8,7 +8,7 @@ setInterval(() => {
 function updatePage() {
 
     console.log("Details Reloded")
-    fetch("https://henil0604.github.io/worldCorona.github.io/data.json);
+    fetch("https://henil0604.github.io/worldCorona.github.io/data.json")
         .then(response => response.json())
         .then(rsp => {
 
