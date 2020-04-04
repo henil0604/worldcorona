@@ -8,7 +8,7 @@ setInterval(() => {
 function updatePage() {
 
     console.log("Details Reloded")
-    fetch("https://henil0604.github.io/worldCorona.github.io/data.json")
+    fetch("http://127.0.0.1:5500/data.json")
         .then(response => response.json())
         .then(rsp => {
 
@@ -26,7 +26,20 @@ function updatePage() {
                 cases = element.infected
                 dead = element.dead
                 pop = element.pop
+                if (pop == undefined) {
+                    pop = "Not Sure!!"
+                }
                 recovered = element.recovered
+                deadRate = (dead * 100) / cases
+                deadRate = deadRate.toString()
+                deadRate = deadRate.substring(0, deadRate.length - 10)
+                if (deadRate == NaN) {
+                    deadRate = "Not Sure!"
+                }
+                else if (deadRate == "") {
+                    deadRate = "0"
+                }
+                lastUpdated = element.lastUpdated
 
                 i = -1
 
@@ -38,6 +51,8 @@ function updatePage() {
                                 <p class="card-subtitle mb-2 text-muted" id="dead">Dead: ${dead}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="pop">Poplution: ${pop}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="rec">Recovered: ${recovered}</p>
+                                <p class="card-subtitle mb-2 text-muted" id="rec">Dead Rate: ${deadRate}%</p>
+                                <p class="card-subtitle mb-2 text-muted" id="rec">Last Updated: ${lastUpdated}%</p>
                             </div>
                         </div>
                     `
