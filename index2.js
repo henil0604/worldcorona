@@ -260,7 +260,7 @@ const countryList = [
 function updatePage() {
 
     console.log("Details Reloded")
-    fetch("https://henil0604.github.io/worldcorona.com/data.json")
+    fetch("https://henil0604.github.io/worldcorona/data.json")
         .then(response => response.json())
         .then(rsp => {
 
