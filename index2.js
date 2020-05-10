@@ -1,8 +1,39 @@
+// global Variables
+var spn = document.getElementById('spinner')
+var length = document.getElementById('length')
+var main = document.getElementById('main')
+var statusDiv = document.getElementById('statusDiv')
+var statusVal = document.getElementById('statusVal')
+var search = document.getElementById('searchTxt')
+
 updatePage()
+
+setInterval(() => {
+    window.onerror = function error() {
+        spn.innerHTML = "";
+        length.innerHTML = "";
+        main.innerHTML = "";
+
+        let errorHtml = `
+        <div class="error_container">
+        <h1 class="header">Error!</h1>
+        <p>Oops! Some Thing went Wrong. Reload to solve the Problem!</p>
+        </div>
+        `
+
+        main.innerHTML = errorHtml
+
+    }
+
+}, 1000);
+
+statusVal.innerText = "Running..."
 
 setInterval(() => {
     updatePage()
 }, 1800000);
+
+statusVal.innerText = "Collecting Country Data";
 
 const countryList = [
     { "name": "Afghanistan", "code": "AF" },
@@ -257,24 +288,28 @@ const countryList = [
     { "name": "Zimbabwe", "code": "ZW" }
 ]
 
+
 function updatePage() {
 
     console.log("Details Reloded")
+    statusVal.innerText = "Fetching Data...";
     fetch("https://henil0604.github.io/worldcorona/data.json")
         .then(response => response.json())
         .then(rsp => {
 
-            var spn = document.getElementById('spinner')
             spn.innerHTML = "";
 
-            var length = document.getElementById('length')
+            statusVal.innerText = "Counting Length of States";
             length.innerHTML = `Corona Details of ${rsp.data.length} States`
 
             // console.log(rsp);
             // console.log(rsp.data)
+            statusVal.innerText = "Collecting Data of States...";
+
             rsp.data.forEach(function (element, index) {
 
                 name = element.name
+                statusVal.innerText = "Collecting Names...";
                 country = element.country
                 // console.log(countryListSN);
 
@@ -286,8 +321,11 @@ function updatePage() {
                 // console.log(countryListSN, " : ", countryLIstBN);
 
                 cases = element.infected
+                statusVal.innerText = "Collecting Cases...";
 
                 dead = element.dead
+                statusVal.innerText = "Collecting Death...";
+
                 deadRate = (dead * 100) / cases
                 deadRate = deadRate.toString()
                 deadRate = deadRate.substring(0, deadRate.length - 10)
@@ -301,6 +339,7 @@ function updatePage() {
                 if (pop == undefined) {
                     pop = "Not Sure!!"
                 }
+                statusVal.innerText = "Collecting More...";
                 recovered = element.recovered
                 recoveryRate = (recovered * 100) / cases
                 recoveryRate = recoveryRate.toString()
@@ -323,33 +362,33 @@ function updatePage() {
                 }
 
 
-
+                statusVal.innerText = "Making Card...";
                 card = `
-                        <div class="card my-2 mx-2" style="width: 18rem;">
-                            <div class="card-body" id="card">
-                                <h5 class="card-title">${name}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted" class="country" id="country">Country: ${country}</h6>
-                                <p class="card-subtitle mb-2 text-muted" id="infected">Infected: ${cases}</p>
+                <div class="card my-2 mx-2" style="width: 18rem;">
+                <div class="card-body" id="card">
+                <h5 class="card-title">${name}</h5>
+                <h6 class="card-subtitle mb-2 text-muted" class="country" id="country">Country: ${country}</h6>
+                <p class="card-subtitle mb-2 text-muted" id="infected">Infected: ${cases}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="dead">Dead: ${dead}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="activeCases">Active Cases: ${activeCase}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="pop">Poplution: ${pop}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="rec">Recovered: ${recovered}</p>
                                 <p class="card-subtitle mb-2 text-muted" id="deadRate">Dead Rate: ${deadRate}%</p>
                                 <p class="card-subtitle mb-2 text-muted" id="recRate">Recovery Rate: ${recoveryRate}%</p>
-                            </div>
-                        </div>
-                    `
+                                </div>
+                                </div>
+                                `
 
-
-                main = document.getElementById('main')
+                statusVal.innerText = "Putting Data...";
                 main.innerHTML += card;
             });
+            statusVal.innerText = "Done";
+            statusDiv.innerHTML = "";
+            console.log("Cleared");
         })
-
 }
 
 
-let search = document.getElementById('searchTxt')
 search.addEventListener("input", myFunction)
 
 function myFunction() {
