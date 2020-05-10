@@ -275,7 +275,7 @@ function updatePage() {
 
     console.log("Details Reloded")
     statusVal.innerText = "Fetching Data...";
-    fetch("https://heil0604.github.io/worldcorona/data.json")
+    fetch("https://henil0604.github.io/worldcorona/data.json")
         .then(response => response.json())
         .then(rsp => {
 
