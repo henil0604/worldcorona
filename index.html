@@ -10,6 +10,96 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gaegu&display=swap');
+
+
+        .status {
+            transition: 1s;
+            margin-top: 20px;
+            position: absolute;
+            left: 43%;
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(92, 153, 245);
+            color: white;
+            text-align: center;
+            border-radius: 23px;
+            z-index: 99999;
+        }
+
+        .statusVal {
+            width: auto;
+            transition: 1s;
+            padding: 2px 7px;
+        }
+
+        .error_container {
+            transition: 1s;
+            font-family: 'Gaegu', cursive;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .error_container h1 {
+            transition: 1s;
+            font-size: 150px;
+            letter-spacing: 10px;
+            margin-right: 300px;
+            margin-left: 300px;
+            margin-top: 80px;
+            margin-bottom: 0px;
+        }
+
+        .error_container p {
+            transition: 1s;
+            font-size: 25px;
+        }
+
+
+        @media only screen and (max-width: 700px) {
+            .error_container {
+                transition: 1s;
+                font-family: 'Gaegu', cursive;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .error_container h1 {
+                transition: 1s;
+                font-size: 50px;
+                letter-spacing: 6px;
+                margin-right: 100px;
+                margin-left: 100px;
+                margin-top: 80px;
+                margin-bottom: 0px;
+            }
+
+            .error_container p {
+                transition: 1s;
+                font-size: 10px;
+            }
+
+        }
+
+        @media only screen and (max-width: 1000px) {
+            .error_container h1 {
+                transition: 1s;
+                font-size: 50px;
+                letter-spacing: 6px;
+                margin-right: 150px;
+                margin-left: 150px;
+                margin-top: 80px;
+                margin-bottom: 0px;
+            }
+
+        }
+
         #main {
             display: flex;
             flex-wrap: wrap;
@@ -73,9 +163,12 @@
         <li id="length" class="card-subtitle mb-2 text-muted"></li>
     </ui>
 
-    <div id="main">
-
+    <div id="statusDiv">
+        <div class="status" id="status">
+            <div class="statusVal" id="statusVal">Loading...</div>
+        </div>
     </div>
+    <div id="main"></div>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
