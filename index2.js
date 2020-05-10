@@ -8,24 +8,6 @@ var search = document.getElementById('searchTxt')
 
 updatePage()
 
-setInterval(() => {
-    window.onerror = function error() {
-        spn.innerHTML = "";
-        length.innerHTML = "";
-        main.innerHTML = "";
-
-        let errorHtml = `
-        <div class="error_container">
-        <h1 class="header">Error!</h1>
-        <p>Oops! Some Thing went Wrong. Reload to solve the Problem!</p>
-        </div>
-        `
-
-        main.innerHTML = errorHtml
-
-    }
-
-}, 1000);
 
 statusVal.innerText = "Running..."
 
@@ -388,6 +370,24 @@ function updatePage() {
         })
 }
 
+setInterval(() => {
+    window.onerror = function error() {
+        spn.innerHTML = "";
+        length.innerHTML = "";
+        main.innerHTML = "";
+
+        let errorHtml = `
+        <div class="error_container">
+        <h1 class="header">Error!</h1>
+        <p>Oops! Some Thing went Wrong. Reload to solve the Problem!</p>
+        </div>
+        `
+
+        main.innerHTML = errorHtml
+
+    }
+
+}, 1000);
 
 search.addEventListener("input", myFunction)
 
